@@ -10,12 +10,6 @@ pipeline {
             }
             steps {
                echo "Building release ${RELEASE} with log level ${LOG_LEVEL}..."
-               sh 'chmod +x m2/demo3/build.sh'
-               withCredentials([string(credentialsId: 'an-api-key', variable: 'API_KEY')]) {
-                  sh '''
-                     ./m2/demo3/build.sh
-                  '''
-               }
             }
         }
         stage('Test') {
